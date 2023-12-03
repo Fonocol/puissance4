@@ -215,6 +215,11 @@ int loadpartie(const char *folderPath, const char *gameName, Partie *partie,int 
                 fscanf(file, "[%d][%d] : %d\n",&i,&j, &partie->matrice[i][j]);
             }
         }
+        for (int i = 0; i < LINE; i++) {;
+            for (int j = 0; j < COLONNE; j++) {
+                matrice[i][j] = partie->matrice[i][j];
+            }
+        }
         fclose(file);
         return 1;  // La lecture a réussi
     } else {
@@ -230,11 +235,6 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
     int col;
     while (!isfool(jeu) && !winer(&jeu,jeu.joueurCourant))
     {
-        if (jeu.joueurCourant == rouge){
-            jeu.joueurCourant = vert;
-        }else if (jeu.joueurCourant == vert){
-            jeu.joueurCourant = rouge;
-        } 
         do
         {
             system("cls");//update
@@ -244,7 +244,15 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
             print_generique("enter la colone :",1);
             scanf("%d",&col);
         } while ( !insert(&jeu,col,jeu.joueurCourant ));
-        savepartie("puissanc_4", &jeu,matrice);  
+        if (!winer(&jeu,jeu.joueurCourant)){
+            if (jeu.joueurCourant == rouge){
+                jeu.joueurCourant = vert;
+            }else if (jeu.joueurCourant == vert){
+                jeu.joueurCourant = rouge;
+            } 
+        }
+        savepartie("puissanc_4", &jeu,matrice);
+          
     }
 
     if (winer(&jeu,jeu.joueurCourant)){
@@ -307,7 +315,7 @@ void run(int matrice[LINE][COLONNE],char *folderName) {
         print_generique("Entrez le nom de votre partie : ",1);
         scanf("%s", game.name);
         game.tour =1;
-        game.joueurCourant = rouge;//le premier est vert
+        game.joueurCourant = vert;//le premier est vert
         game.win_vert = zero;
         game.win_rouge =zero;
         init(matrice);
