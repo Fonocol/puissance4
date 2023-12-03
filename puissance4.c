@@ -254,10 +254,14 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
         savepartie("puissanc_4", &jeu,matrice);
           
     }
+    system("cls");//update
+    print(jeu);
 
     if (winer(&jeu,jeu.joueurCourant)){
         print_generique("Bravo la partie a ete gagner par le joueur ",1);
         printf("%d",jeu.joueurCourant);
+        Sleep(2000);
+        
         if (jeu.joueurCourant == rouge){
             jeu.win_rouge++;
         }else if (jeu.joueurCourant == vert){
@@ -266,10 +270,12 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
     }
     else if (isfool(jeu)){
         print_generique("match null personne n'a gagner la partie :) ",1);
+        Sleep(2000);
     }
     
     Sleep(2000);
     system("cls");
+    print_generique("nouvelle partie en cour ",0);
     init(matrice);
     for (int i = 0; i < LINE; i++) {
         for (int j = 0; j < COLONNE; j++) {
