@@ -251,7 +251,7 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
                 jeu.joueurCourant = rouge;
             } 
         }
-        savepartie("puissanc_4", &jeu,matrice);
+        savepartie("puissanc_doc", &jeu,matrice);
           
     }
     system("cls");//update
@@ -283,7 +283,7 @@ void jeux(Partie jeu,int matrice[LINE][COLONNE]){
         }
     }
     jeu.tour=jeu.tour+1;
-    savepartie("puissanc_4", &jeu,matrice);
+    savepartie("puissanc_doc", &jeu,matrice);
     jeux(jeu,matrice);
 
 }
@@ -305,7 +305,7 @@ void run(int matrice[LINE][COLONNE],char *folderName) {
         scanf("%s", gameName);
         
         Partie game;
-        if (loadpartie("puissanc_4", gameName, &game,matrice)) {
+        if (loadpartie("puissanc_doc", gameName, &game,matrice)) {
             printf("Chargement reussi : Nom : %s", game.name);
             //printMatrix(gameInfo.matrice);
             jeux(game,matrice);
@@ -331,8 +331,8 @@ void run(int matrice[LINE][COLONNE],char *folderName) {
             }
         }
         
-        
-        savepartie("puissanc_4", &game,matrice);
+    
+        savepartie("puissanc_doc", &game,matrice);
         printf("Nouvelle partie creee : Nom : %s\n", game.name);
         jeux(game,matrice);
     }

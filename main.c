@@ -2,7 +2,7 @@
 
 int main(){
     
-    char *folderName = "puissanc_4";
+    char *folderName = "puissanc_doc";
     create(folderName);
 
     

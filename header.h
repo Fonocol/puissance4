@@ -30,7 +30,7 @@ enum{
 
 typedef struct Partie {
     int matrice[LINE][COLONNE];
-    char *name;
+    char name[50];
     int tour;
     int joueurCourant;
     int win_vert;
