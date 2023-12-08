@@ -84,7 +84,7 @@ void print(Partie partie){
                     }else if (partie.matrice[i][j]==rouge){
                         printf("\033[47m\033[31m o ");
                     }else{
-                        printf("\033[47m %d ",partie.matrice[i][j]);
+                        printf("\033[47m   ");
                     }   
                 } else {
                     if (partie.matrice[i][j]==vert){
@@ -92,7 +92,7 @@ void print(Partie partie){
                     }else if (partie.matrice[i][j]==rouge){
                         printf("\033[40m\033[31m o ");
                     }else{
-                        printf("\033[40m %d ",partie.matrice[i][j]);
+                        printf("\033[40m   ");
                     }   
                 }
             }
