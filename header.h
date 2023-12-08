@@ -21,11 +21,19 @@
 #define COLONNE 7
 #define PIONS 21
 #define VIDE 0
+#define upper 3
+#define lower 1
+#define medium 2
 
 enum{
-    zero,
-    vert,
-    rouge
+    zero=0,
+    vert=-1,
+    rouge=1
+};
+
+enum{
+    humain,
+    machine
 };
 
 typedef struct Partie {
@@ -35,6 +43,7 @@ typedef struct Partie {
     int joueurCourant;
     int win_vert;
     int win_rouge;
+    int choix;
 }Partie;
 
 void init(int matrice[LINE][COLONNE]);
